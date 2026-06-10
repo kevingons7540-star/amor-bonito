@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola, Amor</title>
+  <style>
+    :root {
+      --bg-1: #ffd6e7;
+      --bg-2: #fff6fb;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #5a2338;
+      --accent: #d94b78;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 34%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    }
+
+    .card {
+      width: min(720px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(217, 75, 120, 0.15);
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(90, 35, 56, 0.15);
+      padding: 32px;
+      backdrop-filter: blur(8px);
+    }
+
+    h1, h2 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .photo {
+      margin: 20px 0 10px;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    .photo img {
+      width: min(100%, 320px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 4px solid rgba(217, 75, 120, 0.25);
+      box-shadow: 0 12px 30px rgba(90, 35, 56, 0.18);
+    }
+
+    .photo small {
+      text-align: center;
+      color: rgba(90, 35, 56, 0.75);
+    }
+
+    p, li {
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    .quote {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-left: 5px solid var(--accent);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .heart-section {
+      margin-top: 28px;
+      padding: 24px 16px 8px;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+    }
+
+    .heart-title {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .heart-wrap {
+      position: relative;
+      width: min(72vw, 320px);
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(0 18px 28px rgba(217, 75, 120, 0.24));
+      animation: floatHeart 3.6s ease-in-out infinite;
+    }
+
+    .heart {
+      position: absolute;
+      width: 62%;
+      height: 62%;
+      background: linear-gradient(145deg, #ff7aa4, #d94b78 70%, #b92e5b);
+      transform: rotate(-45deg);
+      border-radius: 18px;
+      animation: beat 1.15s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -50%;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50%;
+      top: 0;
+    }
+
+    .heart-letters {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transform: translateY(-4%);
+      font-size: clamp(2.4rem, 10vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #fff9fc;
+      text-shadow: 0 3px 8px rgba(90, 35, 56, 0.35);
+      user-select: none;
+    }
+
+    .heart-letters span {
+      display: inline-block;
+      animation: letterPop 1.15s ease-in-out infinite;
+    }
+
+    .heart-letters span:last-child {
+      animation-delay: 0.12s;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: rotate(-45deg) scale(1);
+      }
+      35% {
+        transform: rotate(-45deg) scale(1.08);
+      }
+      60% {
+        transform: rotate(-45deg) scale(0.98);
+      }
+    }
+
+    @keyframes floatHeart {
+      0%, 100% {
+        translate: 0 0;
+      }
+      50% {
+        translate: 0 -8px;
+      }
+    }
+
+    @keyframes letterPop {
+      0%, 100% {
+        transform: scale(1);
+      }
+      45% {
+        transform: scale(1.12);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Hola, Amor!</h1>
+    <p>Te quiero con todo mi corazón, con cada pensamiento bonito y con cada latido que me recuerda lo especial que eres para mí.</p>
+    <p>Eres mi alegría, mi calma y la razón por la que siempre quiero sonreír.</p>
+
+    <div class="photo">
+      <img src="fotopersonalizada.jpeg" alt="Foto personalizada">
+      <small>26/04/26 <strong>la fecha mas importante para mi</strong> llegaste tu a mi vida y ahora no quiero a nadie mas te amo mucho</small>
+    </div>
+
+    <h2>Los pasos que te había prometido</h2>
+    <ol>
+      <li><strong>Paso 1:</strong> Me encanta compartir tiempo contigo.</li>
+      <li><strong>Paso 2:</strong> claramente eres la mejor novia del mundo.</li>
+      <li><strong>Paso 3:</strong> Me siento feliz contigo por el amor que me brindas eres y seras siempre mi todo amor mio.</li>
+    </ol>
+
+    <div class="quote">Eres mi lugar favorito, mi pensamiento más bonito y la persona que hace que todo tenga sentido.</div>
+
+    <section class="heart-section" aria-label="Corazón animado con letras G y K">
+      <p class="heart-title">Nuestro corazón</p>
+      <div class="heart-wrap">
+        <div class="heart" aria-hidden="true"></div>
+        <div class="heart-letters" aria-hidden="true">
+          <span>G</span>
+          <span>K</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
