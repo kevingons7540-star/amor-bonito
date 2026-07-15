@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros Viajes</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f9d6f5, #f4f0ff);
+      color: #4b2a46;
+    }
+    .card {
+      width: min(720px, 100%);
+      background: rgba(255,255,255,0.92);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 18px 50px rgba(90,35,56,0.12);
+      text-align: center;
+    }
+    .gallery {
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #a94bb7, #7553d9);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Nuestros Viajes</h1>
+    <p><strong>Hola Mi amada y querida Esposa te amo mucho</strong></p>
+    <a href="index.html">Volver a la página principal</a>
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <script>
+    const images = [
+      'fotos/im.jpeg',
+      'fotos/jk.jpeg',
+      'fotos/WhatsApp Image 2026-07-13 at 7.25.09 PM.jpeg',
+      'fotos/WhatsApp Image 2026-07-13 at 7.25.10 PM.jpeg',
+      'fotos/WhatsApp Image 2026-07-13 at 7.25.18 PM.jpeg',
+      'fotos/WhatsApp Image 2026-07-13 at 7.25.21 PM.jpeg',
+      'fotos/WhatsApp Image 2026-07-13 at 7.25.22 PM.jpeg'
+    ];
+    const gallery = document.getElementById('gallery');
+    images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Foto romántica';
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
