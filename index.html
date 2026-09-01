@@ -4,107 +4,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hola, Amor</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
-      --bg-1: #ffd6e7;
-      --bg-2: #fff6fb;
-      --card: rgba(255, 255, 255, 0.82);
-      --text: #5a2338;
-      --accent: #d94b78;
+      --bg-1: #fbe7f1;
+      --bg-2: #fffafc;
+      --bg-3: #f3ecff;
+      --card: rgba(255, 255, 255, 0.8);
+      --card-strong: #ffffff;
+      --text: #462334;
+      --muted: #6f4d5d;
+      --accent: #d64b7a;
+      --accent-2: #7e5de0;
+      --accent-3: #f6a8c9;
+      --line: rgba(214, 75, 122, 0.18);
+      --shadow: 0 24px 60px rgba(110, 52, 81, 0.12);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      font-family: Arial, sans-serif;
+      padding: 32px 18px;
+      font-family: "Segoe UI", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 34%),
-        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(126,93,224,0.08), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 42%, var(--bg-3));
     }
 
     .card {
-      width: min(720px, 100%);
-      background: var(--card);
-      border: 1px solid rgba(217, 75, 120, 0.15);
-      border-radius: 24px;
-      box-shadow: 0 18px 50px rgba(90, 35, 56, 0.15);
-      padding: 32px;
-      backdrop-filter: blur(8px);
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 34px 28px 42px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(214, 75, 122, 0.08);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
 
     h1, h2 {
-      color: var(--accent);
       margin-top: 0;
+      color: var(--text);
     }
 
     h1 {
-      margin-bottom: 12px;
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 16px;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      color: var(--accent);
     }
 
     h2 {
-      margin-top: 28px;
-      margin-bottom: 12px;
-      font-size: 1.3rem;
+      margin: 26px 0 14px;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      color: var(--accent);
     }
 
-    .photo {
-      margin: 20px 0 10px;
-      display: grid;
-      gap: 10px;
-      justify-items: center;
+    p, li {
+      line-height: 1.8;
+      font-size: 1.04rem;
+      color: var(--muted);
     }
 
-    .photo img {
-      width: min(100%, 320px);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 20px;
-      border: 4px solid rgba(217, 75, 120, 0.25);
-      box-shadow: 0 12px 30px rgba(90, 35, 56, 0.18);
+    .intro p {
+      margin: 0 0 22px;
+      font-size: 1.08rem;
     }
 
-    .photo small {
-      text-align: center;
-      color: rgba(90, 35, 56, 0.75);
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
     }
 
     .tulip-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 18px;
-      padding: 14px 20px;
+      padding: 13px 18px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #d94b78, #ff7aa4);
+      background: linear-gradient(135deg, var(--accent), #ff8cb3);
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      box-shadow: 0 12px 26px rgba(217, 75, 120, 0.22);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 14px 26px rgba(214, 75, 122, 0.22);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .tulip-button.secondary {
+      background: linear-gradient(135deg, var(--accent-2), #9c85f5);
+      box-shadow: 0 14px 26px rgba(126, 93, 224, 0.18);
+    }
+
+    .tulip-button.ghost {
+      background: rgba(255,255,255,0.8);
+      color: var(--text);
+      border: 1px solid rgba(126,93,224,0.18);
+      box-shadow: none;
     }
 
     .tulip-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(217, 75, 120, 0.28);
+      box-shadow: 0 18px 32px rgba(214, 75, 122, 0.28);
     }
 
-    p, li {
+    .photo-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.84));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: 0 18px 34px rgba(84, 48, 89, 0.12);
+    }
+
+    .photo {
+      margin: 0;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 4px solid rgba(214, 75, 122, 0.18);
+      box-shadow: 0 18px 36px rgba(90, 35, 56, 0.12);
+    }
+
+    .photo small {
+      display: block;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
       line-height: 1.7;
-      font-size: 1.05rem;
+    }
+
+    .photo strong {
+      color: var(--accent);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .reason-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 16px;
+      box-shadow: 0 10px 24px rgba(74, 42, 52, 0.05);
+    }
+
+    .reason-card strong {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.92rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     ol {
       margin: 0;
-      padding-left: 22px;
+      padding-left: 20px;
     }
 
     li {
@@ -112,44 +211,45 @@
     }
 
     .quote {
-      margin-top: 22px;
-      padding: 16px 18px;
+      margin-top: 30px;
+      padding: 18px 20px;
       border-left: 5px solid var(--accent);
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));
+      border-radius: 16px;
       font-weight: 600;
+      color: var(--text);
     }
 
     .quotes-grid {
-      margin-top: 18px;
+      margin-top: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
     }
 
     .quote-card {
-      padding: 16px 16px 18px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(217, 75, 120, 0.16);
+      padding: 18px 16px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
       border-radius: 18px;
-      box-shadow: 0 10px 24px rgba(90, 35, 56, 0.08);
-      color: var(--text);
-      line-height: 1.6;
+      box-shadow: 0 12px 26px rgba(90, 35, 56, 0.06);
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .quote-card strong {
       display: block;
       margin-bottom: 8px;
       color: var(--accent);
-      font-size: 1.02rem;
+      font-size: 1rem;
     }
 
     .tulip-section {
-      margin-top: 30px;
-      padding: 24px 16px 16px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.34));
-      border: 1px solid rgba(217, 75, 120, 0.14);
-      border-radius: 20px;
+      margin-top: 36px;
+      padding: 28px 18px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.42));
+      border: 1px solid var(--line);
+      border-radius: 24px;
       overflow: hidden;
     }
 
@@ -157,60 +257,43 @@
       margin: 0 0 8px;
       text-align: center;
       color: var(--accent);
-      font-size: 1.2rem;
+      font-size: 1.28rem;
+      font-weight: 700;
     }
 
     .tulip-subtitle {
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       text-align: center;
-      color: rgba(90, 35, 56, 0.76);
-    }
-
-    .video-placeholder {
-      margin-top: 24px;
-      padding: 24px 16px;
-      border: 1px dashed rgba(217, 75, 120, 0.35);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.45);
+      color: var(--muted);
     }
 
     .garden {
       position: relative;
-      height: 310px;
+      height: 320px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      gap: clamp(10px, 3vw, 24px);
+      gap: clamp(10px, 2vw, 24px);
       padding-bottom: 42px;
       isolation: isolate;
     }
 
     .soil {
       position: absolute;
-      left: -16px;
-      right: -16px;
+      left: 0;
+      right: 0;
       bottom: 0;
-      height: 88px;
-      background: linear-gradient(180deg, #9d6b4a, #744b31);
-      border-top-left-radius: 28px;
-      border-top-right-radius: 28px;
-      box-shadow: inset 0 14px 0 rgba(255, 255, 255, 0.06);
+      height: 90px;
+      background: linear-gradient(180deg, #9d6c4f, #73482e);
+      border-radius: 24px 24px 0 0;
+      box-shadow: inset 0 10px 0 rgba(255,255,255,0.06);
       z-index: 0;
-    }
-
-    .soil::before {
-      content: "";
-      position: absolute;
-      inset: 10px 18px 18px;
-      border-radius: 999px;
-      background: repeating-radial-gradient(circle at 20px 18px, rgba(255, 255, 255, 0.13) 0 2px, transparent 2px 12px);
-      opacity: 0.25;
     }
 
     .tulip {
       position: relative;
-      width: 74px;
-      height: 210px;
+      width: 76px;
+      height: 220px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -219,53 +302,38 @@
       animation: riseTulip 2.6s ease-out both, swayTulip 4s ease-in-out infinite;
     }
 
-    .tulip:nth-child(2) {
-      animation-delay: 0.1s, 0s;
-    }
-
-    .tulip:nth-child(3) {
-      animation-delay: 0.2s, 0s;
-    }
-
-    .tulip:nth-child(4) {
-      animation-delay: 0.35s, 0s;
-    }
+    .tulip:nth-child(2) { animation-delay: 0.1s, 0s; }
+    .tulip:nth-child(3) { animation-delay: 0.2s, 0s; }
+    .tulip:nth-child(4) { animation-delay: 0.35s, 0s; }
 
     .stem {
       position: absolute;
-      bottom: 36px;
+      bottom: 38px;
       width: 10px;
-      height: 145px;
+      height: 150px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #4aa85f, #2f7d41);
-      box-shadow: inset -2px 0 0 rgba(255, 255, 255, 0.12);
+      background: linear-gradient(180deg, #57bf73, #2d7d42);
+      box-shadow: inset -2px 0 0 rgba(255,255,255,0.12);
     }
 
     .leaf {
       position: absolute;
-      bottom: 70px;
+      bottom: 74px;
       width: 34px;
-      height: 80px;
-      background: linear-gradient(135deg, #4aa85f, #2f7d41);
+      height: 82px;
+      background: linear-gradient(135deg, #57bf73, #2d7d42);
       border-radius: 100% 0 100% 0;
       transform-origin: bottom center;
     }
 
-    .leaf.left {
-      left: 12px;
-      transform: rotate(-28deg);
-    }
-
-    .leaf.right {
-      right: 12px;
-      transform: scaleX(-1) rotate(-28deg);
-    }
+    .leaf.left { left: 12px; transform: rotate(-28deg); }
+    .leaf.right { right: 12px; transform: scaleX(-1) rotate(-28deg); }
 
     .flower {
       position: absolute;
-      bottom: 150px;
-      width: 54px;
-      height: 54px;
+      bottom: 152px;
+      width: 58px;
+      height: 58px;
       display: grid;
       place-items: center;
       animation: bloom 2.6s ease-out both, flowerWiggle 3.4s ease-in-out infinite;
@@ -274,122 +342,37 @@
     .petal {
       position: absolute;
       width: 24px;
-      height: 40px;
-      border-radius: 999px 999px 16px 16px;
-      background: linear-gradient(180deg, #ee9aff, #4bb1d9);
+      height: 42px;
+      border-radius: 999px 999px 18px 18px;
+      background: linear-gradient(180deg, #f1b4ff, #66c5f3);
       transform-origin: bottom center;
     }
 
     .petal.center {
       width: 28px;
-      height: 44px;
+      height: 46px;
       z-index: 2;
+      background: linear-gradient(180deg, #f7d9ff, #6dd2ff);
     }
 
-    .petal.left {
-      transform: translateX(-12px) rotate(-24deg);
-    }
-
-    .petal.middle {
-      transform: translateY(-7px);
-      z-index: 3;
-    }
-
-    .petal.right {
-      transform: translateX(12px) rotate(24deg);
-    }
-
-    .petal.back {
-      width: 22px;
-      height: 36px;
-      transform: translateY(-8px) rotate(180deg);
-      opacity: 0.92;
-    }
-
-    .tulip.one .flower {
-      filter: drop-shadow(0 8px 10px rgba(35, 90, 62, 0.08));
-    }
-
-    .tulip.two .flower {
-      filter: drop-shadow(0 8px 10px rgba(90, 35, 56, 0.08));
-      animation-duration: 2.8s, 3.7s;
-    }
-
-    .tulip.three .flower {
-      filter: drop-shadow(0 8px 10px rgba(47, 35, 90, 0.08));
-      animation-duration: 3s, 3.3s;
-    }
-
-    .tulip.one .petal,
-    .tulip.one .stem,
-    .tulip.one .leaf {
-      animation-delay: 0s;
-    }
+    .petal.left { transform: translateX(-12px) rotate(-24deg); }
+    .petal.right { transform: translateX(12px) rotate(24deg); }
+    .petal.back { width: 22px; height: 38px; transform: translateY(-8px) rotate(180deg); opacity: 0.94; }
 
     .tulip.two .petal,
     .tulip.two .stem,
     .tulip.two .leaf {
-      background: linear-gradient(180deg, #ffa7d0, #e14f82);
+      background: linear-gradient(180deg, #7c8be9, #70d6b5);
     }
 
     .tulip.three .petal,
     .tulip.three .stem,
     .tulip.three .leaf {
-      background: linear-gradient(180deg, #ffb3c9, #cc3f72);
-    }
-
-    .flower::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 32px;
-      height: 14px;
-      background: radial-gradient(circle, rgba(47, 125, 65, 0.98) 25%, rgba(47, 125, 65, 0.4) 55%, transparent 70%);
-      border-radius: 50%;
-      filter: blur(0.2px);
-      z-index: 0;
-    }
-
-    @keyframes riseTulip {
-      0% {
-        transform: translateY(85px) scale(0.55);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes swayTulip {
-      0%, 100% {
-        rotate: -1deg;
-      }
-      50% {
-        rotate: 2.8deg;
-      }
-    }
-
-    @keyframes bloom {
-      0% {
-        transform: translateY(16px) scale(0.55);
-      }
-      100% {
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes flowerWiggle {
-      0%, 100% {
-        rotate: -2deg;
-      }
-      50% {
-        rotate: 2deg;
-      }
+      background: linear-gradient(180deg, #47bd53, #d0dc4c);
     }
 
     .heart-section {
-      margin-top: 28px;
+      margin-top: 32px;
       padding: 24px 16px 8px;
       display: grid;
       justify-items: center;
@@ -398,18 +381,18 @@
 
     .heart-title {
       margin: 0;
-      font-size: 1.15rem;
       color: var(--accent);
-      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
     .heart-wrap {
       position: relative;
-      width: min(72vw, 320px);
+      width: min(72vw, 300px);
       aspect-ratio: 1 / 1;
       display: grid;
       place-items: center;
-      filter: drop-shadow(0 18px 28px rgba(217, 75, 120, 0.24));
+      filter: drop-shadow(0 18px 28px rgba(214, 75, 122, 0.24));
       animation: floatHeart 3.6s ease-in-out infinite;
     }
 
@@ -417,7 +400,7 @@
       position: absolute;
       width: 62%;
       height: 62%;
-      background: linear-gradient(145deg, #ff7aa4, #d94b78 70%, #b92e5b);
+      background: linear-gradient(145deg, #ff8ab0, #d94b78 70%, #b92e5b);
       transform: rotate(-45deg);
       border-radius: 18px;
       animation: beat 1.15s ease-in-out infinite;
@@ -433,15 +416,8 @@
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -50%;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 50%;
-      top: 0;
-    }
+    .heart::before { top: -50%; left: 0; }
+    .heart::after { left: 50%; top: 0; }
 
     .heart-letters {
       position: relative;
@@ -449,8 +425,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      transform: translateY(-4%);
-      font-size: clamp(2.4rem, 10vw, 4.6rem);
+      font-size: clamp(2.3rem, 10vw, 4.4rem);
       font-weight: 800;
       letter-spacing: 0.08em;
       color: #fff9fc;
@@ -463,61 +438,122 @@
       animation: letterPop 1.15s ease-in-out infinite;
     }
 
-    .heart-letters span:last-child {
-      animation-delay: 0.12s;
+    .heart-letters span:last-child { animation-delay: 0.12s; }
+
+    .poem-section {
+      margin-top: 36px;
+      padding: 26px 18px 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .poem-section h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .poem-section p {
+      margin: 0 0 10px;
+      text-align: center;
+    }
+
+    @keyframes riseTulip {
+      0% { transform: translateY(85px) scale(0.55); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    @keyframes swayTulip {
+      0%, 100% { rotate: -1deg; }
+      50% { rotate: 2.8deg; }
+    }
+
+    @keyframes bloom {
+      0% { transform: translateY(16px) scale(0.55); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    @keyframes flowerWiggle {
+      0%, 100% { rotate: -2deg; }
+      50% { rotate: 2deg; }
     }
 
     @keyframes beat {
-      0%, 100% {
-        transform: rotate(-45deg) scale(1);
-      }
-      35% {
-        transform: rotate(-45deg) scale(1.08);
-      }
-      60% {
-        transform: rotate(-45deg) scale(0.98);
-      }
+      0%, 100% { transform: rotate(-45deg) scale(1); }
+      35% { transform: rotate(-45deg) scale(1.08); }
+      60% { transform: rotate(-45deg) scale(0.98); }
     }
 
     @keyframes floatHeart {
-      0%, 100% {
-        translate: 0 0;
-      }
-      50% {
-        translate: 0 -8px;
-      }
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -8px; }
     }
 
     @keyframes letterPop {
-      0%, 100% {
-        transform: scale(1);
+      0%, 100% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    @media (max-width: 760px) {
+      .card {
+        padding: 24px 18px 30px;
       }
-      45% {
-        transform: scale(1.12);
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .tulip-button {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <main class="card">
-    <h1>Hola, Amor!</h1>
-    <p>Te quiero con todo mi corazón, con cada pensamiento bonito y con cada latido que me recuerda lo especial que eres para mí.</p>
-    <p>Eres mi alegría, mi calma y la razón por la que siempre quiero sonreír.</p>
-    <a class="tulip-button" href="#tulipanes">Tulipanes</a>
-    <a class="tulip-button" href="pagina2.html" style="margin-top: 12px;">MI AMOR</a>
-    <a class="tulip-button" href="pagina3.html" style="margin-top: 12px;">Nuestros Viajes</a>
-    <a class="tulip-button" href="https://www.youtube.com/watch?v=rcRX1ma5Zh4&list=RDrcRX1ma5Zh4&start_radio=1" style="margin-top: 12px; background: linear-gradient(135deg, #4b145a, #6b21a8); box-shadow: 0 12px 26px rgba(75, 20, 90, 0.25);">Una canción</a>
-    <div class="photo">
-      <img src="fotopersonalizada.jpeg" alt="Foto personalizada">
-      <small>26/04/26 <strong>la fecha mas importante para mi</strong> llegaste tu a mi vida y ahora no quiero a nadie mas te amo mucho</small>
+    <div class="hero-grid">
+      <div class="intro">
+        <span class="eyebrow">Para mi amor</span>
+        <h1>Hola, Amor!</h1>
+        <p>Te quiero con todo mi corazón, con cada pensamiento bonito y con cada latido que me recuerda lo especial que eres para mí.</p>
+        <p>Eres mi alegría, mi calma y la razón por la que siempre quiero sonreír.</p>
+
+        <div class="action-row">
+          <a class="tulip-button" href="#tulipanes">Tulipanes</a>
+          <a class="tulip-button secondary" href="pagina2.html">Mi amor</a>
+          <a class="tulip-button secondary" href="pagina3.html">Nuestros viajes</a>
+          <a class="tulip-button ghost" href="https://www.youtube.com/watch?v=rcRX1ma5Zh4&list=RDrcRX1ma5Zh4&start_radio=1">Una canción</a>
+        </div>
+      </div>
+
+      <div class="photo-panel">
+        <div class="photo">
+          <img src="fotopersonalizada.jpeg" alt="Foto personalizada">
+          <small>26/04/26 <strong>la fecha más importante para mí</strong> llegaste tú a mi vida y ahora no quiero a nadie más, te amo mucho.</small>
+        </div>
+      </div>
     </div>
 
     <h2>Razones por las que te amo</h2>
-    <ol>
-      <li><strong> Primera:</strong> Me encanta compartir tiempo contigo.</li>
-      <li><strong> Segunda:</strong> claramente eres la mejor novia del mundo.</li>
-      <li><strong> Tercera:</strong> Me siento feliz contigo por el amor que me brindas eres y seras siempre mi todo amor mio.</li>
-    </ol>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <strong>Primera</strong>
+        Me encanta compartir tiempo contigo y sentir que todo se vuelve más bonito cuando estás a mi lado.
+      </div>
+      <div class="reason-card">
+        <strong>Segunda</strong>
+        Eres la mejor novia del mundo y cada día me demuestra lo increíble que eres.
+      </div>
+      <div class="reason-card">
+        <strong>Tercera</strong>
+        Me siento feliz contigo, porque el amor que me brindas es mi lugar seguro y mi mayor alegría.
+      </div>
+    </div>
 
     <div class="quote">Eres mi lugar favorito, mi pensamiento más bonito y la persona que hace que todo tenga sentido.</div>
 
@@ -541,8 +577,8 @@
     </section>
 
     <section class="tulip-section" id="tulipanes" aria-label="Animación de tulipanes">
-      <p class="tulip-title">Tulipanes para la mas hermosa</p>
-      <p class="tulip-subtitle">Estos tulipanes me recuerdan ati en tan hermosa y perfecta que eres.</p>
+      <p class="tulip-title">Tulipanes para la más hermosa</p>
+      <p class="tulip-subtitle">Estos tulipanes me recuerdan lo hermosa y especial que eres.</p>
       <div class="garden">
         <div class="soil" aria-hidden="true"></div>
 
@@ -598,22 +634,19 @@
 
     <section class="poem-section" aria-label="Poema">
       <h1>QUEDATE</h1>
-      <p>No quiero obligarte a que quieras quedarte <br>
-      quiero que te quede porque te nace amarme <br>
-      porque me miras y lo unico que puedes pensar es en mi sonrisa<br></p>
-      <br> <p>Porque te gusta mi compañia<br>
-      quedate por decision propia<br>
-      no que pienses que me enojo si te miro con otro.<br></p>
-      <br><p>quiero que sea porque puedes cuidarme<br>
-      darme lo necesario para que nada me falte<br>
-      para que con solo mirarte sienta que el<br>
-      aire meve nuestro cuerpo y altera<br>
-      nuestro sentimientos.<br></p>
-      <br><p>Quiero que te quedes porque sabes amarme<br>
-      y no porque estas acostumbrada que alguien<br>
-      te ame.<br></p>
-      <br><p>Quedate porque quieres quedarte<br>
-      no porque sientas que te obligo "AMARME"</p>
+      <p>No quiero obligarte a que quieras quedarte,<br>
+      quiero que te quedes porque te nace amarme,<br>
+      porque me miras y lo único que puedes pensar es en mi sonrisa.</p>
+      <p>Porque te gusta mi compañía,<br>
+      quédate por decisión propia,<br>
+      no porque pienses que me enojo si te miro con otro.</p>
+      <p>Quiero que sea porque puedes cuidarme,<br>
+      darme lo necesario para que nada me falte,<br>
+      para que con solo mirarte sienta que el aire mueve nuestro cuerpo y altera nuestro sentimiento.</p>
+      <p>Quiero que te quedes porque sabes amarme,<br>
+      y no porque estás acostumbrada a que alguien te ame.</p>
+      <p>Quédate porque quieres quedarte,<br>
+      no porque sientas que te obligo a amarme.</p>
     </section>
   </main>
 </body>
